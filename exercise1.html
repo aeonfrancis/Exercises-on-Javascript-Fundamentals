@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <style>
+      div {
+        border: 1px solid black;
+        border-radius: 50%;
+        text-align: center;
+        padding: 15px;
+        height: 200px;
+        width: 200px;
+      }
+      br {
+        content: "";
+        margin: 1em;
+        display: block;
+        font-size: 24%;
+      }
+      h1 {
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const date = new Date();
+      const currentMonth = `${months[date.getMonth()]} ${date.getDate()}`;
+      const hour = date.toLocaleTimeString();
+      const currentDay = days[date.getDay()];
+
+      document.write(
+        `<div><h1>${currentMonth}<br>${hour}</h1><h3>${currentDay}</h3></div>`
+      );
+
+      //  this reload page per sec to keep the time running
+        setTimeout(function () {
+          window.location.reload();
+        }, 1000);
+    </script>
+  </body>
+</html>

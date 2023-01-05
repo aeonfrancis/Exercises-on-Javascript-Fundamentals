@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christmass Countdown</title>
+    <style>
+      div {
+        width: max-content;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // To set present dates to two variables
+      const presentDate = new Date();
+
+      // 0-11 is Month in JavaScript
+      const christmasDay = new Date(presentDate.getFullYear(), 11, 25);
+
+      // To Calculate next year's Christmas if passed already.
+      if (presentDate.getMonth() == 11 && presentDate.getdate() > 25)
+        christmasDay.setFullYear(christmasDay.getFullYear() + 1);
+
+      // To Calculate the result in milliseconds and then converting into days
+      const Result = (
+        Math.round(christmasDay.getTime() - presentDate.getTime()) /
+        (1000 * 60 * 60 * 24)
+      ).toFixed(0);
+
+      document.write(
+        `<div><img src='tree.PNG' alt='tree image'><h1>Christmas<br>In ${Result} days</h1></div>`
+      );
+    </script>
+  </body>
+</html>
